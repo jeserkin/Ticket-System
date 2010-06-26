@@ -1,0 +1,12 @@
+2010-06-01 16:05 Error: 404
+	The requested page at this address: http://localhost/temporary4t90938t934t34t was not found.
+
+2010-06-01 16:05 Error: 403
+	The requested page at this address: http://localhost/dashboard/ is forbidden.
+
+2010-06-12 14:29 Error: 403
+	The requested page at this address: http://localhost/dashboard/ is forbidden.
+
+2010-06-12 14:42 Error: 404
+	The requested page at this address: http://localhost/index.php?show= was not found.
+

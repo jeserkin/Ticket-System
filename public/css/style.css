@@ -1,0 +1,592 @@
+/*
+**	Application Style
+**	Main style file
+**	© 2010 Ticket System
+*/
+
+/* @charset "utf-8"; */
+html, body,
+div, dl, dt, dd, pre, code,
+ul, ol, li,
+h1, h2, h3, h4, h5, h6,
+form, fieldset, input,
+p, blockquote,
+table, th, td, tr,
+embed, object {
+	margin: 0;
+	padding: 0;
+	border: none;
+}
+
+body {
+	background-color: #F7F7F7;
+	font-family: Verdana, "Lucida Grande", Lucida, sans-serif;
+	border-top: 1px solid #FCFCFC;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+fieldset, img, abbr { border: none; }
+
+address, caption, cite, code,
+h1, h2, h3, h4, h5, h6, th {
+	font-weight: normal;
+	font-style: normal;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+caption, th { text-align: left; }			
+
+*:focus {
+	outline: 0;
+	/* -moz-outline: 0; */
+}
+
+a {
+	text-decoration: none;
+	color: #0873c5;
+}
+
+a:hover { color: #194f79; }
+
+form label {
+	display: block;
+	margin: 3px 0 5px;
+	font: 11px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+.descText {
+	display: block;
+	font: 11px "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin-top: -5px;
+}
+
+.mainContent {
+	background-color: #FAFAFA;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font: 11px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin: 10px;
+}
+
+.mainContent .innerContent { padding: 15px; }
+
+.mainContent p { margin: 0 0 10px; }
+
+.mainContent p.note { color: #14B6E3; }
+
+input.textInput {
+	background-color: #FFF;
+	border: 1px solid #E0E0E0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #878787;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 0 0 15px;
+	padding: 0 5px;
+}
+
+input.textInput:focus { border-color: #CBCBCB; }
+
+input.formSubmit {
+	background-color: #FFF;
+	border: 1px solid #E0E0E0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #838383;
+	height: 30px;
+	width: 200px;
+	margin: 10px auto 0;
+}
+
+input.formSubmit:hover {
+	background-color: #F8F8F8;
+	border-color: #D2D2D2;
+	cursor: pointer;
+}
+
+
+#container {
+	background-color: #FFF;
+	border: 1px solid #E5E5E5;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	font-size: 13px;
+	margin: 50px auto 0;
+	width: 600px;
+	color: #474747;
+}
+
+#container #innerContainer { padding: 20px; }
+
+#top {
+	padding: 0 0 5px;
+	overflow: hidden;
+}
+
+#top h1 {
+	float: left;
+	font: normal normal bold 18px "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+	margin: -5px 0 0;
+	line-height: 1.5;
+}
+
+#top .topRight {
+	display: block;
+	float: right;
+	color: #242424;
+	font: bold 11px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+#buttons { text-align: center; }
+
+#nav {
+	background-color: #F5F5F5;
+	border-top: 1px solid #D3D3D3;
+	font-family: Lucida, "Lucida Grande", Verdana, sans-serif;
+	height: 25px;
+	width: 100%;
+	margin: 0 0 10px;
+	overflow: hidden;
+	padding: 0;
+}
+
+#nav li { float: left; }
+
+#nav li a {
+	border-right: 1px solid #D3D3D3;
+	border-left: 1px solid #FCFCFC;
+	color: #939393;
+	height: 22px;
+	padding: 3px 7px 0;
+	float: left;
+}
+
+#nav li a:hover { color: #6B6B6B; }
+
+#nav li:first-child a { border-left: none; }
+
+#nav .navStandout { float: right; }
+
+#nav .navStandout a {
+	border-left: 1px solid #D3D3D3;
+	border-right: none;
+}
+
+.subHead {
+	border-bottom: 1px solid #14B6E3;
+	color: #60C9E6;
+	/* font-size: 12pt; */
+	font-size: 16px;
+	margin: 0 0 15px;
+	padding: 0 2px 2px;
+	overflow: hidden;
+}
+
+.subHead .subTitle { float: left; }
+
+.list {
+	color: #A3A3A3;
+	/* font-size: 8pt; */
+	font-size: 11px;
+	margin: -10px 5px 5px;
+	overflow: hidden;
+}
+
+.list li {
+	border-top: 1px solid #D5D5D5;
+	height: 25px;
+	padding: 0px 0;
+	clear: both;
+}
+
+.list li p {
+	display: block;
+	float: left;
+	margin: 8px 0;
+}
+
+.list li.key {
+	border-top: none;
+	color: #6C6C6C;
+	height: 25px;
+	padding: 0 0 6px;
+}
+
+.list .elem1 { width: 16%; }
+
+.list .elem2 { width: 16%; }
+
+.list .elem3 { width: 45%; }
+
+.list .elem4 { width: 12%; }
+
+.list .elem5 { width: 10%; }
+
+.list .strong { font-weight: bold; }
+
+/* Message Display Style */
+.ticketMessage {
+	background-color: #FAFAFA;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font: 11px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin: 10px;
+}
+
+.innerMessage .messageHead {
+	background-color: #EBEBEB;
+	overflow: hidden;
+}
+
+.messageHead .userPart {
+	float: left;
+}
+
+.userPart ul {
+	list-style: none;
+	margin: 3px 5px;
+}
+
+.userPart ul li.userName {
+	font-weight: bold;
+}
+
+.messageHead .datePart {
+	float: right;
+}
+
+.datePart p {
+	margin: 12px 5px 0;
+}
+
+.innerMessage .messageContent {
+	margin: 3px 5px;
+}
+
+/* Reply to current ticket style */
+.ticketReply {
+	background-color: #FAFAFA;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font: 11px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin: 10px;
+}
+
+.ticketReply .innerReply { padding: 15px; }
+
+.innerReply label {
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+.innerReply .whoReply,
+.innerReply .whoEmail,
+.innerReply .answer {
+	background-color: #FFF;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font: 11px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+	padding: 3px;
+}
+
+.innerReply .answer {
+	margin: 0;
+	padding: 1px;
+}
+
+.innerReply .answer textarea {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background-color: #FFF;
+}
+
+.innerReply .whoEmail,
+.innerReply .answer {
+		margin-top: 5px;
+}
+
+.innerReply .submitAnswer {
+	width: 508px;
+	text-align: right;
+}
+
+.submitAnswer input {
+	background-color: #FFF;
+	border: 1px solid #E0E0E0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #838383;
+	height: 30px;
+	width: 150px;
+	margin: 10px auto 0;
+}
+
+/* Close Ticket Style */
+#tClose {
+	margin: 7px 0;
+	text-align: center;
+}
+
+#tClose input {
+	background-color: #FFF;
+	border: 1px solid #E0E0E0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #838383;
+	height: 30px;
+	width: 150px;
+	margin: 10px auto 0;
+	cursor: pointer;
+}
+
+/* New Ticket Form Style */
+#ticketForm {
+	font-size: 15px;
+	margin-left: 10px;
+}
+
+#ticketTopic input {
+	background-color: #FFF;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #838383;
+	height: 25px;
+	line-height: 25px;
+	width: 450px;
+	margin-left: 10px;
+	padding: 0 5px;
+	font-size: 15px;
+}
+
+#ticketTopic label,
+#ticketPriority label,
+#ticketCategory label {
+	font-size: 13px;
+}
+
+#ticketPriority select,
+#ticketCategory select {
+	background-color: #FFF;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #838383;
+	height: 25px;
+	margin-left: 10px;
+	font-size: 15px;
+}
+
+#ticketPriority option,
+#ticketCategory option {
+	padding: 3px;
+}
+
+#ticketForm #ticketMain {
+	background-color: #FAFAFA;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #838383;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 460px;
+}
+
+#ticketMain #ticketTools {
+	height: 25px;
+	border-bottom: 1px solid #C4C4C4; 
+}
+
+#ticketMain #ticketContent { width: 460px; }
+
+#ticketContent textarea {
+	width: 456px;
+	height: 150px;
+	padding: 2px;
+	margin: 0;
+	border: 0;
+}
+
+#ticketSubmit {
+	width: 472px;
+	text-align: right;
+	margin-left: 10px;
+}
+
+#ticketSubmit input {
+	background-color: #FFF;
+	border: 1px solid #E0E0E0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #838383;
+	height: 30px;
+	width: 150px;
+	margin: 10px auto 0;
+}
+
+/* Replies list style */
+.ticketAnswers {
+	background-color: #FAFAFA;
+	border: 1px solid #DFDFDF;
+	-webkit-border-radius: 4px;
+	-khtml-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font: 11px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin: 10px;
+}
+
+.innerAnswers .answersHead {
+	background-color: #EBEBEB;
+	overflow: hidden;
+}
+
+.answersHead .respondentPart { float: left; }
+
+.respondentPart ul {
+	list-style: none;
+	margin: 3px 5px;
+}
+
+.respondentPart ul li.respondentName { font-weight: bold; }
+
+.answersHead .datePart { float: right; }
+
+.datePart p { margin: 12px 5px 0; }
+
+.innerAnswers .answersContent { margin: 3px 5px; }
+
+.adminBorder { border: 1px solid #99C6DF; }
+
+.innerAnswers .adminHead { background-color: #B3DAEF; }
+
+.adminCont { background-color: #DFF4FF; }
+
+/* Pagination Style */
+.pagination {
+	color: #D1D7CA;
+	font-size: 11px;
+}
+
+.pagination ul { overflow: hidden; }
+
+.pagination li a {
+	background-color: #FFF;
+	border: 1px solid #E0E0E0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	color: #838383;
+	margin: 0 5px;
+	padding: 3px 5px;
+	float: left;
+}
+
+.pagination li a:hover { border: 1px solid #7FE314; }
+
+.pagination li.dis span {
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	background-color: #FFF;
+	border: 1px solid #E0E0E0;
+	color: #E0E0E0;
+	cursor: default;
+	margin: 0 5px;
+	padding: 3px 5px;
+	float: left;
+}
+
+.innerContent .license  { margin: 0; }
+.innerContent .spaceLine  { margin: 10px 0 0; }
+
+.innerContent .licenseItems {
+	border-bottom: 1px solid #DEDEDE;
+	color: #A2A2A2;
+	/* font-size: 12pt; */
+	font-size: 16px;
+	margin: 15px 0 3px;
+	padding: 0 2px 2px;
+	overflow: hidden;
+}
+
+.innerContent .listItems {
+	margin-left: 30px;
+}
+
+/* Testing area */
+p.testification  {
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+/* Testing area END */
+
+/* Registration */
+div.optional { display: none; }
+
+#footer {
+	color: #666;
+	font: 10px "Trebuchet MS", "Lucida Grande", Lucida, Verdana, sans-serif;
+	margin: 5px auto 50px;
+	width: 600px;
+}
+
+#footer #innerFooter {
+	padding: 0 10px;
+	overflow: hidden;
+}
+
+#innerFooter a { color: #7FE314; }			
+
+#innerFooter a:hover { color: #582; }
+
+.left { float: left; }
+
+.right { float: right; }
