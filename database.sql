@@ -1,25 +1,25 @@
-/* CREATING DATABASE ac_engine */
-CREATE DATABASE ticket_system DEFAULT CHARACTER SET cp1257 COLLATE cp1257_general_ci;
-
-
-/* CREATE TABLE ts_users */
-CREATE TABLE IF NOT EXISTS ts_users (
-	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-	username VARCHAR(30) NOT NULL,
-	email VARCHAR(50) NOT NULL,
-	userpass VARCHAR(32) NOT NULL,
-	ugroup SMALLINT UNSIGNED DEFAULT 2 NOT NULL
-	PRIMARY KEY(id),
-	UNIQUE(username),
-	UNIQUE(email)
-) ENGINE = InnoDB;
-
 /* CREATE TABLE ts_ugroup */
 CREATE TABLE IF NOT EXISTS ts_ugroup (
 	id SMALLINT UNSIGNED NOT NULL,
 	ugroup_name VARCHAR(30) NOT NULL,
 	PRIMARY KEY(id),
 	UNIQUE(ugroup_name)
+) ENGINE = InnoDB;
+
+/* Insert data into classifier */
+INSERT INTO ts_ugroup(id, ugroup_name) VALUES(1, 'Admin');
+INSERT INTO ts_ugroup(id, ugroup_name) VALUES(2, 'User');
+
+/* CREATE TABLE ts_users */
+CREATE TABLE IF NOT EXISTS ts_users (
+	id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+	username VARCHAR(30) NOT NULL,
+	userpass VARCHAR(32) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	ugroup SMALLINT UNSIGNED DEFAULT 2 NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(username),
+	UNIQUE(email)
 ) ENGINE = InnoDB;
 
 /* Adding FOREIGN KEY TO TABLE ts_users */
@@ -117,13 +117,20 @@ ALTER TABLE ts_ticket_reply ADD CONSTRAINT fk_ts_ticket_reply1 FOREIGN KEY(ticke
 ALTER TABLE ts_ticket_reply ADD CONSTRAINT fk_ts_ticket_reply2 FOREIGN KEY(resp_id) REFERENCES ts_users(id) ON DELETE CASCADE ON UPDATE CASCADE;
 
 
-/* Insert data into classifier */
-INSERT INTO ts_ugroup(id, ugroup_name) VALUES(1, 'Admin');
-INSERT INTO ts_ugroup(id, ugroup_name) VALUES(2, 'User');
+/* CREATE TABLE ts_system_settings */
+CREATE TABLE ts_system_settings(
+	id INT UNSIGNED NOT NULL,
+	setting_name VARCHAR(70) NOT NULL,
+	setting_value VARCHAR(4294967295) NOT NULL,
+	autoload TINYINT(1) NOT NULL,
+	PRIMARY KEY(id),
+	UNIQUE(setting_name)
+) ENGINE = InnoDB;
 
-INSERT INTO ts_ticket_category(id, category_name) VALUES(1, 'Test_category1');
-INSERT INTO ts_ticket_category(id, category_name) VALUES(2, 'Test_category2');
-INSERT INTO ts_ticket_category(id, category_name) VALUES(3, 'Test_category3');
+/* Insert data into classifier */
+INSERT INTO ts_ticket_category(id, category_name) VALUES(1, 'Merchandise');
+INSERT INTO ts_ticket_category(id, category_name) VALUES(2, 'Order');
+INSERT INTO ts_ticket_category(id, category_name) VALUES(3, 'Payment');
 
 INSERT INTO ts_ticket_priority(id, priority_name) VALUES(1, 'High');
 INSERT INTO ts_ticket_priority(id, priority_name) VALUES(2, 'Medium');
@@ -131,9 +138,21 @@ INSERT INTO ts_ticket_priority(id, priority_name) VALUES(3, 'Low');
 
 INSERT INTO ts_ticket_status(id, status_name) VALUES(1, 'Opened');
 INSERT INTO ts_ticket_status(id, status_name) VALUES(2, 'Closed');
+INSERT INTO ts_ticket_status(id, status_name) VALUES(3, 'Answered');
 
 INSERT INTO ts_user_status(id, user_status_name) VALUES(1, 'Online');
 INSERT INTO ts_user_status(id, user_status_name) VALUES(2, 'Offline');
+
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(1, 'base_url', 'http://localhost', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(2, 'appname', 'Ticket System', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(3, 'appdescription', 'New astonishing ticket system', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(4, 'admin_appemail', 'admin@example.com', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(5, 'sign_up_state', '1', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(6, 'new_member', '2', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(7, 'timezone', 'Europe/Estonia', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(8, 'date_format', 'm-d-Y', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(9, 'time_format', 'H:i', 1);
+INSERT INTO ts_system_settings(id, setting_name, setting_value, autoload) VALUES(10, 'week_start_on', '1', 1);
 
 /* CREATE VIEW ts_tickets_view */
 CREATE OR REPLACE VIEW ts_tickets_view AS
@@ -144,7 +163,7 @@ AND topic.status_id = stat.id
 AND topic.priority_id = prior.id
 AND topic.author_id = users.id
 AND users.ugroup = ugroup.id
-ORDER BY topic.id
+ORDER BY topic.id;
 
 /* CREATE VIEW ts_replies_view */
 CREATE OR REPLACE VIEW ts_replies_view AS
@@ -152,4 +171,4 @@ SELECT reply.ticket_id, users.username, ugroup.ugroup_name, reply.date_time, rep
 FROM ts_users AS users, ts_ugroup AS ugroup, ts_ticket_reply AS reply
 WHERE users.id = reply.resp_id
 AND users.ugroup = ugroup.id
-ORDER BY reply.id
+ORDER BY reply.id;

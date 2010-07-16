@@ -1,11 +1,10 @@
 RewriteEngine On
 
 RewriteRule ^$ index.php
+RewriteRule ^sign_out(/)?$ index.php?sign_out=true
 RewriteRule ^(dashboard)/([a-zA-Z]+)(/)?$ index.php?show=$1&method=$2
 RewriteRule ^(dashboard)/([0-9]+)(/)?$ index.php?show=$1&page=$2
-RewriteRule ^(dashboard)/(viewticket)/([0-9]+)?$ index.php?show=$1&method=$2&ticket=$3
-RewriteRule ^logout(/)?$ index.php?logout=true
+RewriteRule ^(dashboard)/(viewticket)/([0-9]+)(/)?$ index.php?show=$1&method=$2&ticket=$3
 RewriteRule ^([a-zA-Z0-9]+)(/)?$ index.php?show=$1
-#RewriteRule ^(.*)(/)?$ index.php?show=error404
 
 Options -Indexes

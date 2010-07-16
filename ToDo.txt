@@ -1,0 +1,7 @@
+ToDo List
+
+[] Need to create install.php file.
+[] Need to create admin menu.
+[] Need to create profile page.
+[] Need to add two ticket states `Client answered` and `Staff answered`.
+[] Caching needs repairing.

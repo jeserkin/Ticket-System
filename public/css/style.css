@@ -1,7 +1,7 @@
 /*
 **	Application Style
 **	Main style file
-**	© 2010 Ticket System
+**	Â© 2010 Pool System
 */
 
 /* @charset "utf-8"; */
@@ -590,3 +590,84 @@ div.optional { display: none; }
 .left { float: left; }
 
 .right { float: right; }
+
+/* Not sorted IDs and Classes */
+
+#error {
+	color: #D8000C;
+	border: 1px solid;
+	background-color: #FFBABA;
+}
+
+.roundCornerObj {
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#acpPart { overflow: hidden; }
+
+#acp {
+	border: 1px solid #E5E5E5;
+	background-color: #F5F5F5;
+	width: 170px;
+	float: left;
+}
+
+#acp ul { padding: 2px 5px; }
+
+#acp ul li.elems {
+	border-bottom: 1px solid #E5E5E5;
+	padding: 2px 0px;
+}
+
+#acp ul li.last { padding: 2px 0px; }
+
+#newTest {
+	border: 1px solid #E5E5E5;
+	background-color: #F5F5F5;
+	width: 380px;
+	float: left;
+	margin-left: 6px;
+}
+
+#newTest div.top {
+	border-bottom: 1px solid #E5E5E5;
+	padding: 3px 5px;
+	font-weight: bold;
+}
+
+#newTest div.q {
+	border-bottom: 1px solid #E5E5E5;
+	padding: 10px;
+}
+
+#newTest label { margin: 3px 0; }
+
+#newTest input.question {
+	border: 1px solid #E5E5E5;
+	width: 354px;
+	padding: 2px;
+}
+
+#newTest div.answer {
+	padding-left: 10px;
+}
+
+#newTest input.answer {
+	border: 1px solid #E5E5E5;
+	width: 344px;
+	padding: 2px;
+}
+
+#newTest input.picture {
+	border: 1px solid #E5E5E5;
+	padding: 2px;
+}
+
+#newTest div.s {
+	text-align: right;
+	padding: 0 10px 10px;
+	
+}
