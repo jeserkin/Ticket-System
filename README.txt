@@ -19,3 +19,8 @@ Installation process
 	- Now the data should be cached and you can start using the application.
 5. FINISHED
 	- Try the application on your default webpage URL: 'http://your_webpage_address.your_domain_zone/'
+
+
+If you have any questions or would like to consult before fork, just let me know:
+	Skype: netjunky_admin
+	Twitter: netjunky88
