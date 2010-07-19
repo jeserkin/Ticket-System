@@ -70,7 +70,11 @@ class Cache {
 	 */
 	private function getDataFromDB() {
 		$data = array();
-		$query = $this->db->query("SELECT * FROM ts_system_settings");
+		$query = $this->db->query("
+			SELECT setting_name, setting_value
+			FROM ts_system_settings
+			ORDER BY id
+		");
 		while(($row = $this->db->fetchAssoc($query)) != NULL) {
 			$data[$row['setting_name']] = $row['setting_value'];
 		}

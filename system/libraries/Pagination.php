@@ -126,10 +126,20 @@ class Pagination {
 		
 		$this->startFrom = ($this->curPage - 1) * $this->entryPerPage;
 		
-		if($this->user->ugroup == 1) {
-			$this->entriesToDisplay = $this->db->query("SELECT * FROM ts_tickets_view WHERE status_name = 'Opened' LIMIT ".$this->db->escapeVal($this->startFrom).", ".$this->db->escapeVal($this->entryPerPage)."");
+		if($this->user->isAdmin()) {
+			$this->entriesToDisplay = $this->db->query("
+				SELECT id, date_time, category_name, subject, status_name, priority_name
+				FROM ts_tickets_view
+				WHERE status_name = 'Opened'
+				LIMIT ".$this->db->escapeVal($this->startFrom).", ".$this->db->escapeVal($this->entryPerPage)
+			);
 		} else {
-			$this->entriesToDisplay = $this->db->query("SELECT * FROM ts_tickets_view WHERE author_id = ".$this->db->escapeVal($this->user->id)." LIMIT ".$this->db->escapeVal($this->startFrom).", ".$this->db->escapeVal($this->entryPerPage)."");
+			$this->entriesToDisplay = $this->db->query("
+				SELECT id, date_time, category_name, subject, status_name, priority_name
+				FROM ts_tickets_view
+				WHERE author_id = ".$this->db->escapeVal($this->user->id)."
+				LIMIT ".$this->db->escapeVal($this->startFrom).", ".$this->db->escapeVal($this->entryPerPage)
+			);
 		}
 		
 		return $this->entriesToDisplay;
@@ -162,10 +172,10 @@ class Pagination {
 	 */
 	public function getNumPages() {
 		if($this->user->ugroup == 1) {
-			$query = $this->db->query("SELECT COUNT(1) AS total FROM ts_tickets_view WHERE status_name = 'Opened'");
+			$query = "SELECT COUNT(1) AS total FROM ts_tickets_view WHERE status_name = 'Opened'";
 			$total = $this->db->fetchAssoc($query);
 		} else {
-			$query = $this->db->query("SELECT COUNT(1) AS total FROM ts_tickets_view WHERE author_id = ".$this->db->escapeVal($this->user->id)."");
+			$query = "SELECT COUNT(1) AS total FROM ts_tickets_view WHERE author_id = ".$this->db->escapeVal($this->user->id);
 			$total = $this->db->fetchAssoc($query);
 		}
 		

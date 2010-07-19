@@ -83,16 +83,16 @@ if(@$_REQUEST['ticket'] == '') {
 					</div>
 				</div>
 				<?php
-					if($ticket->chkForReplies($_REQUEST['ticket'])) {
-						$result = $ticket->getTicketReplies($_REQUEST['ticket']);
-						while(($treplies = $db->fetchAssoc($result)) != NULL) {
-							if($treplies['ugroup'] == 1) {
-								$border = "adminBorder";
-								$head = "adminHead";
-								$cont = "adminCont";
-							} else {
-								$border = $head = $cont = "";
-							}
+				if($ticket->chkForReplies($_REQUEST['ticket'])) {
+					$result = $ticket->getTicketReplies($_REQUEST['ticket']);
+					while(($treplies = $db->fetchAssoc($result)) != NULL) {
+						if($treplies['ugroup'] == 1) {
+							$border = "adminBorder";
+							$head = "adminHead";
+							$cont = "adminCont";
+						} else {
+							$border = $head = $cont = "";
+						}
 				?>
 				<div class="ticketAnswers <?php echo $border." ".$cont; ?>">
 					<div class="innerAnswers">
@@ -113,8 +113,8 @@ if(@$_REQUEST['ticket'] == '') {
 					</div>
 				</div>
 				<?php
-						}
 					}
+				}
 				?>
 				<?php if($ticket->chkTicketStatus($_REQUEST['ticket'])) { ?>
 				<div id="tClose">

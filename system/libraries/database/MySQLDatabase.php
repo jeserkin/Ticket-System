@@ -115,8 +115,13 @@ class MySQLDatabase extends DatabaseConnection {
 	public function query($sql) {
 		$this->lastQuery = $sql;
 		$result = mysql_query($sql);
-		$this->confirmQuery($result);
-		return $result;
+		//$this->confirmQuery($result);
+		if($this->confirmQuery($result) == FALSE) {
+			echo "Query: [{$sql}] was unsuccessful.";
+			return false;
+		} else {
+			return $result;
+		}
 	}
 	
 	/* "Database-neutral" methods */
@@ -128,8 +133,13 @@ class MySQLDatabase extends DatabaseConnection {
 	 * @param	resource	Data returned from database by query.
 	 * @return	array
 	 */
-	public function fetchArray($result_set) {
-		return mysql_fetch_array($result_set);
+	public function fetchArray($sql) {
+		if(is_resource($sql)) {
+			return mysql_fetch_array($sql);
+		} else {
+			$result_set = $this->query($sql);
+			return mysql_fetch_array($result_set);
+		}
 	}
 	
 	/**
@@ -139,8 +149,13 @@ class MySQLDatabase extends DatabaseConnection {
 	 * @param	resource	Data returned from database by query.
 	 * @return	array
 	 */
-	public function fetchAssoc($result_set) {
-		return mysql_fetch_assoc($result_set);
+	public function fetchAssoc($sql) {
+		if(is_resource($sql)) {
+			return mysql_fetch_assoc($sql);
+		} else {
+			$result_set = $this->query($sql);
+			return mysql_fetch_assoc($result_set);
+		}
 	}
 	
 	/**
@@ -151,8 +166,13 @@ class MySQLDatabase extends DatabaseConnection {
 	 * @param	resource	Data returned from database by query.
 	 * @return	int
 	 */
-	public function numRows($result_set) {
-		return mysql_num_rows($result_set);
+	public function numRows($sql) {
+		if(is_resource($sql)) {
+			return mysql_num_rows($sql);
+		} else {
+			$result_set = $this->query($sql);
+			return mysql_num_rows($result_set);
+		}
 	}
 	
 	/**
@@ -187,6 +207,8 @@ class MySQLDatabase extends DatabaseConnection {
 			$output = "Database query failed: " . mysql_error() . "\n\n";
 			$output .= "Last SQL query: " . $this->lastQuery;
 			return false;
+		} else {
+			return true;
 		}
 	}
 	

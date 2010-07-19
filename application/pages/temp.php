@@ -1,6 +1,8 @@
 <?php
 
 # Will be finished later
-$cache->writeDataToFile();
+//$cache->writeDataToFile();
+
+
 
 ?>

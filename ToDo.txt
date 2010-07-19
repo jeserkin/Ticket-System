@@ -5,3 +5,5 @@ ToDo List
 [] Need to create profile page.
 [] Need to add two ticket states `Client answered` and `Staff answered`.
 [] Caching needs repairing.
+[X] Optimize queries and where possible make queries inside other methods.
+[] Make query method private.

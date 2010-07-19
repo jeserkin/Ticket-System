@@ -19,7 +19,7 @@ if(!defined('SYSPATH')) exit('No direct script access allowed!');
 		<script type="text/javascript" src="http://www.google.com/jsapi" charset="utf-8"></script>
 		<script type="text/javascript">
 			google.load("jquery", "1.4.2");
-			google.load("mootools", "1.2.4");
+			google.load("mootools", "1.2.4", {uncompressed:true});
 		</script>
 		<script type="text/javascript">
 			$(document).ready(function() {

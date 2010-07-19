@@ -132,16 +132,17 @@ class UserManager extends User {
 	 */
 	private function signIn($username, $userpass) {
 		# Search for user in database
-		$result = $this->db->query("
+		$query = "
 			SELECT id
 			FROM ts_users
 			WHERE
 				username = '".$this->db->escapeVal($username)."' AND
 				userpass = '".$this->db->escapeVal($userpass)."'
-		");
+			LIMIT 1
+		";
 		
 		# If record with specified user not found
-		if(!$row = $this->db->fetchAssoc($result)) {
+		if(!$row = $this->db->fetchAssoc($query)) {
 			return false;
 		}
 		
@@ -212,7 +213,7 @@ class UserManager extends User {
 				if(!$this->chkUserExistance($userData)) {
 					# Let us control is it first user or no
 					# If he/she is first user, then it is probably admin
-					$userCount = $this->db->fetchAssoc($this->db->query("SELECT COUNT(1) AS total FROM ts_users"));
+					$userCount = $this->db->fetchAssoc("SELECT COUNT(1) AS total FROM ts_users");
 					if($userCount['total'] == 0) $userGroup = 1;
 					else $userGroup = 2;
 					# Add new user to database
@@ -286,14 +287,25 @@ class UserManager extends User {
 	 */
 	public function chkUserExistance($user) {
 		if(is_numeric($user)) {
-			$result = $this->db->query("SELECT * FROM ts_users WHERE id = ".$this->db->escapeVal($user)."");
+			$query = "
+				SELECT id, username, userpass, email, ugroup
+				FROM ts_users
+				WHERE id = ".$this->db->escapeVal($user)."
+				LIMIT 1
+			";
 			
-			return $result;
+			return $query;
 		} else if(is_array($user)) {
-			$result = $this->db->query("SELECT * FROM ts_users WHERE username = '".$this->db->escapeVal($user['username'])."' OR email = '".$this->db->escapeVal($user['email'])."'");
+			$query = "
+				SELECT id, username, userpass, email, ugroup
+				FROM ts_users
+				WHERE username = '".$this->db->escapeVal($user['username'])."'
+				OR email = '".$this->db->escapeVal($user['email'])."'
+				LIMIT 1
+			";
 			
 			# If user not found
-			if(!$row = $this->db->fetchAssoc($result)) {
+			if(!$row = $this->db->fetchAssoc($query)) {
 				return false;
 			}
 			

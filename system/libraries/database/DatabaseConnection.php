@@ -35,25 +35,25 @@ class DatabaseConnection {
 	 * e.g. localhost
 	 * @var string
 	 */
-	protected $DB_HOST = "YOUR_DATABASE_HOST";
+	protected $DB_HOST = "localhost";
 	
 	/**
 	 * Database name.
 	 * @var string
 	 */
-	protected $DB_NAME = "YOUR_DATABASE_NAME";
+	protected $DB_NAME = "ticket_system";
 	
 	/**
 	 * Database user name.
 	 * @var string
 	 */
-	protected $DB_USER = "YOUR_DATABASE_USERNAME";
+	protected $DB_USER = "root";
 	
 	/**
 	 * Database user password.
 	 * @var string
 	 */
-	protected $DB_PASS = "YOUR_DATABASE_PASSWORD";
+	protected $DB_PASS = "toor";
 	
 	/**
 	 * Database table prefix.

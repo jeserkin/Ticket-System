@@ -6,8 +6,8 @@ if(!defined('SYSPATH')) exit('No direct script access allowed!');
 # Error reporting level by default it is set to ALL.
 ini_set("error_reporting", "true");
 # Use strictly for debuging purposes
-#error_reporting(E_ALL | E_STRICT);
-error_reporting(0);
+error_reporting(E_ALL | E_STRICT);
+#error_reporting(0);
 
 /* Default language */
 $config['language'] = "english";

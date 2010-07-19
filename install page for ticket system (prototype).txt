@@ -1,0 +1,37 @@
+<html>
+<head>
+<style type="text/css">
+body {
+   font-family: "Calibri", sans;
+   font-size: 62.5%;
+}
+
+fieldset {
+   border: 1px solid #CCC;
+   -moz-border-radius: 3px 3px 3px 3px;
+   background-color: #EFEFEF;
+   font-size: 1.1em;
+   padding: 5px;
+}
+
+legend {
+   border: 1px solid #CCC;
+   -moz-border-radius: 3px 3px 3px 3px;
+   background-color: #FFF;
+   font-size: 1.1em;
+   padding: 2px;
+}
+</style>
+</head>
+<body>
+
+<form>
+<fieldset>
+<legend>Personalia:</legend>
+Testing testing.
+</fieldset>
+</form>
+
+</body>
+</html>
+
