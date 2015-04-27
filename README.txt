@@ -22,5 +22,4 @@ Installation process
 
 
 If you have any questions or would like to consult before fork, just let me know:
-	Skype: netjunky_admin
 	Twitter: netjunky88
