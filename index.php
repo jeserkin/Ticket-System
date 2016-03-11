@@ -29,7 +29,7 @@ defined('ROOT') or define('ROOT', str_replace(SELF, "", __FILE__));
 
 /* Three main paths */
 # Path to public folder. Use it only if NECCESARY.
-defined('PUBPATH') or define('PUBPATH', realpath(ROOT."/".$public_foler));
+defined('PUBPATH') or define('PUBPATH', realpath(ROOT."/".$public_folder));
 # Path to application folder.
 defined('APPPATH') or define('APPPATH', realpath(ROOT."/".$application_folder));
 # Path to system folder.
